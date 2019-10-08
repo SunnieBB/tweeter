@@ -1,0 +1,16 @@
+#profile {
+  height: 400px;
+  margin-top: 120px;
+  width: 100%;
+  position: relative;
+  background-color: #f00080;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+}
+
+#profile div {
+  position: relative;
+  text-align: center;
+  top: 5%;
+  /* transform: translate(-50%, -50%); */
+  /* left: 50%; */
+}
