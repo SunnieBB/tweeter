@@ -1,0 +1,24 @@
+article {
+  border: 3px solid black;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+article:hover {
+  box-shadow: 8px 8px 0 #888;
+
+}
+
+.userID{
+  float: right;
+  color: grey;
+  display: none;
+}
+
+article:hover .userID {
+  display: flex;
+}
+
+.icon {
+  float: right;
+}
