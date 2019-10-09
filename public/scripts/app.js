@@ -70,5 +70,29 @@ return newElement;
 }
 
 $(() => {
-  renderTweets(data);
+  loadTweets();
+  const form = $("form")
+  
+  form.on("submit", (event) => {
+    const input = $("textarea").val();
+    if (!input) {
+      alert("empty tweet!")
+    } else if (input.length > 140) {
+      alert("tweet too long!")
+    } else {
+        event.preventDefault()
+        $.ajax('/tweets', { 
+          method: 'POST',
+          data: form.serialize()
+        })
+      }
+  })
 });
+
+const loadTweets = () => {
+  $.ajax('/tweets', {method: 'GET'})
+  .then((data) => {
+    renderTweets(data);
+  });
+};
+
