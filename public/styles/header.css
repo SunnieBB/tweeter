@@ -10,7 +10,18 @@
 #profile div {
   position: relative;
   text-align: center;
-  top: 5%;
-  /* transform: translate(-50%, -50%); */
-  /* left: 50%; */
+  top: 10%;
+}
+
+@media only screen and (min-width: 1024px) {
+  #profile {
+    margin-top: 185px;
+    margin-left: 100px;
+    margin-right: 200px;
+    max-width: 500px;
+  }
+  
+  body {
+    display: flex;
+  }
 }

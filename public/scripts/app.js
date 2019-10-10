@@ -84,6 +84,7 @@ $(() => {
     } else if (input.length > 140) {
       $('.error-message').text("Too Long! Please see Tweet limit!");
       $(".hiddenError").removeClass("error").slideDown();
+      $(".hiddenError").slideDown(slow);
     } else {
       $(".hiddenError").slideUp();
         $.ajax('/tweets', { 
