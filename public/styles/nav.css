@@ -14,3 +14,24 @@ nav span {
   font-family: 'Bungee', sans-serif;
   color: #ffffff;
 }
+
+.write {
+  float: right;
+}
+
+.arrow {
+  margin-right: 115px;
+  float: right;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  animation: bounce 1.2s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  0% {margin-top: 0px; color: rgba(255, 166, 0, 0.829);}
+  50% {margin-top: 18px; color: rgba(255, 60, 0, 0.829);}
+  100% {margin-top: 0px; color: rgba(255, 166, 0, 0.829);}
+}

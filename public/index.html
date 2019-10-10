@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet-post.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/error.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -26,10 +27,19 @@
   </head>
 
   <body>
-
     <!-- Top nav bar (fixed) -->
     <nav>
       <span>tweeter</span>
+      <span class="write">
+        Write a new tweet
+      </span>
+
+      <br>
+
+        <button class="arrow">
+            <i class="fas fa-angle-double-down"></i>
+        </button>
+        
     </nav>
 
     <header id="profile">
@@ -45,7 +55,15 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
         <section class="new-tweet">
-            <h2>Compose Tweet</h2>
+
+          <div class="hiddenError error">
+              <i class="fas fa-exclamation-triangle"></i>
+              <span class="error-message">
+              </span>
+              <i class="fas fa-exclamation-triangle"></i> 
+          </div>
+
+          <h2>Compose Tweet</h2>
             <form>
               <textarea name="text" placeholder="What are you humming about?"></textarea>
               <input type="submit" value="Tweet">

@@ -1,0 +1,15 @@
+.hiddenError {
+  margin-top: 10px;
+  border-top: 3px solid crimson;
+  border-right: 3px solid crimson;
+  border-left: 3px solid crimson;
+  border-bottom: 3px solid crimson;
+  font-weight: 600;
+  color: crimson;
+  text-align: center;
+  padding: 10px;
+}
+
+.error {
+  display: none;
+}

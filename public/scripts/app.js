@@ -33,8 +33,9 @@ const renderTweets = function(tweets) {
 // loops through tweets
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container
+$("#tweets").empty();
   for (tweet in tweets) {
-    $("#tweets").append(createTweetElement(tweets[tweet]))
+    $("#tweets").prepend(createTweetElement(tweets[tweet]))
   }
 }
 
@@ -53,7 +54,7 @@ const createTweetElement = function(tweet) {
               </header>
 
               <span>
-                "${tweet["content"]["text"]}"
+                "${escape(tweet["content"]["text"])}"
               </span>
               <hr>
             
@@ -74,18 +75,30 @@ $(() => {
   const form = $("form")
   
   form.on("submit", (event) => {
+    event.preventDefault()
     const input = $("textarea").val();
     if (!input) {
-      alert("empty tweet!")
+      $('.error-message').text("empty tweet");
+      $(".hiddenError").removeClass("error");
+      $(".hiddenError").slideDown(slow);
     } else if (input.length > 140) {
-      alert("tweet too long!")
+      $('.error-message').text("Too Long! Please see Tweet limit!");
+      $(".hiddenError").removeClass("error").slideDown();
     } else {
-        event.preventDefault()
+      $(".hiddenError").slideUp();
         $.ajax('/tweets', { 
           method: 'POST',
           data: form.serialize()
         })
+        .then(() => {
+          loadTweets();
+          $("textarea").val("");
+        });
       }
+  })
+
+  $(".arrow").click(() => {
+    $(".new-tweet").slideToggle();
   })
 });
 
@@ -95,4 +108,13 @@ const loadTweets = () => {
     renderTweets(data);
   });
 };
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+
+
 
